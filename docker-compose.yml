@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: '3'
 services:
   selenium:
@@ -14,3 +15,21 @@ services:
       - selenium
     volumes:
       - ./output:/app/output
+=======
+
+services:
+  selenium:
+    image: selenium/standalone-chrome
+    container_name: selenium-chrome
+    ports:
+      - "4444:4444"
+      - "7900:7900"  # Para ver con VNC si quieres
+
+  test-runner:
+    build:
+      context: ./test
+    depends_on:
+      - selenium
+    volumes:
+      - ./output:/tmp
+>>>>>>> 503b3d935c39c18c2f8a4141f125437b27bbdbfa
